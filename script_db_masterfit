@@ -8,3 +8,15 @@ CREATE TABLE professor(
 SELECT * FROM professor;
 
 INSERT INTO professor (nome, email, cpf) VALUES ('Douglas', 'Douglas@gmail', '123456789');
+
+delete from professor where id = 1;
+
+CREATE TABLE cupom_desconto(
+  id_cupom SERIAL PRIMARY KEY,
+  codigo_cupom varchar(30),
+  porcentual_desconto decimal(5,2),
+  valor_desconto_fixo decimal(10,2),
+  data_validade timestamp
+  ativo boolean
+);
+
