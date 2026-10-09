@@ -39,3 +39,11 @@ CREATE TABLE suplemento(
   url_imagem varchar(255),
   ativo boolean
 );
+
+CREATE TABLE suplemento_favorito(
+  id_favorito SERIAL PRIMARY KEY,
+  id_usuario int not null 
+  id_suplemento int not null
+  data_adicao timestamp
+);
+
