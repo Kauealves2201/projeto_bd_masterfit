@@ -1,0 +1,62 @@
+ TABLE cupom_desconto(
+  id_cupom SERIAL PRIMARY KEY,
+  codigo_cupom varchar(30) not null,
+  porcentual_desconto decimal(5,2),
+  valor_desconto_fixo decimal(10,2),
+  data_validade timestamp not null, 
+);
+
+INSERT INTO cupom_desconto (codigo_cupom, porcentual_desconto, valor_desconto_fixo, data_validade)
+VALUES ('BEMVINDO10', 10.00, NULL, '2027-12-31 23:59:59');
+
+INSERT INTO cupom_desconto (codigo_cupom, porcentual_desconto, valor_desconto_fixo, data_validade)
+VALUES ('FRETEGRATIS', NULL, 15.00, '2027-06-30 12:00:00');
+
+INSERT INTO cupom_desconto (codigo_cupom, porcentual_desconto, valor_desconto_fixo, data_validade)
+VALUES ('FITNESS20', 20.00, NULL, '2027-03-15 00:00:00');
+
+SELECT * FROM cupom_desconto;
+
+
+CREATE TABLE diario_alimentar(
+  id_registro SERIAL PRIMARY KEY,
+  id_usuario int not null,
+  id_alimento int not null,
+  categoria_refeicao varchar(255) not null,
+  quantidade_gramas decimal(8,2) not null,
+  calorias_calculadas decimal(8,2) not null,
+  data_registro date not null,
+  data_sincronizacao timestamp
+);
+ 
+INSERT INTO diario_alimentar (id_usuario, id_alimento, categoria_refeicao, quantidad_gramas, calorias_calculadas, data_registro, data_sincronizacao) 
+VALUES (1, 101, 'Café da Manhã', 150.00, 350.50, '2026-10-16', '2026-10-16 08:30:00'); 
+
+INSERT INTO diario_alimentar (id_usuario, id_alimento, categoria_refeicao, quantidad_gramas, calorias_calculadas, data_registro, data_sincronizacao) 
+VALUES (1, 204, 'Almoço', 350.00, 620.00, '2026-10-16', '2026-10-16 13:00:00'); 
+
+INSERT INTO diario_alimentar (id_usuario, id_alimento, categoria_refeicao, quantidad_gramas, calorias_calculadas, data_registro, data_sincronizacao)
+VALUES (2, 105, 'Lanche', 50.00, 120.00, '2026-10-15', NULL); 
+ 
+ SELECT * FROM diario_alimentar;
+
+
+
+
+CREATE TABLE suplemento(
+  id_suplemento SERIAL PRIMARY KEY,
+  nome varchar(150),
+  descricao text
+  peso_kg varchar(30),
+  preco_unitario decimal(10,2),
+  quantidade_estoque int
+  url_imagem varchar(255),
+  ativo boolean
+);
+
+CREATE TABLE suplemento_favorito(
+  id_favorito SERIAL PRIMARY KEY,
+  id_usuario int not null 
+  id_suplemento int not null
+  data_adicao timestamp
+);CREATE
